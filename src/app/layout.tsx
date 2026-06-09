@@ -21,12 +21,12 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: "Rushikesh & Prajakta — Wedding Invitation · 19 July 2026",
-  description: "We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of Rushikesh & Prajakta",
+  title: "Roshni & Chetan — Wedding Invitation · 19 June 2026",
+  description: "We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of Roshni & Chetan",
   openGraph: {
     type: "website",
-    title: "Rushikesh & Prajakta - Wedding Invitation",
-    description: "A wedding invitation to celebrate the union of Rushikesh & Prajakta on 19th July 2026",
+    title: "Roshni & Chetan - Wedding Invitation",
+    description: "A wedding invitation to celebrate the union of Roshni & Chetan on 19th June 2026",
     images: ["/images/wedding-hero.jpg"],
   },
 };

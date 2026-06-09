@@ -112,7 +112,7 @@ function ScratchCard({ onReveal }: { onReveal: () => void }) {
           className="mt-1 text-4xl"
           style={{ fontFamily: "var(--font-great-vibes), cursive", color: "var(--color-rose-deep)" }}
         >
-          19th July 2026
+          19th June 2026
         </p>
       </div>
       <canvas

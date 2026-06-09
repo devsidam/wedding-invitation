@@ -56,7 +56,7 @@ export default function Envelope({ onOpen }: EnvelopeProps) {
               className="text-xs text-white/90"
               style={{ fontFamily: "var(--font-cinzel), serif" }}
             >
-              R & P
+              R & C
             </span>
           </span>
         </span>

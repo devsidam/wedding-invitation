@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 
 export default function MusicButton() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
 
   useEffect(() => {
     const audio = audioRef.current;

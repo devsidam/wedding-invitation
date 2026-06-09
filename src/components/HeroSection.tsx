@@ -18,7 +18,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen w-full overflow-hidden">
       <Image
         src="/images/wedding-hero.jpg"
-        alt="Rushikesh and Prajakta wedding illustration"
+        alt="Roshni and Chetan wedding illustration"
         fill
         className="object-cover"
         priority
@@ -62,7 +62,7 @@ export default function HeroSection() {
               color: "var(--color-maroon)",
             }}
           >
-            Rushikesh
+            Roshni
           </span>
         </h1>
 
@@ -70,9 +70,9 @@ export default function HeroSection() {
           className="mt-3 text-base sm:text-lg"
           style={{ fontFamily: "var(--font-cormorant), serif", color: "rgba(60, 44, 32, 0.8)" }}
         >
-          S/o Mr. Sanjay Deshmukh
+          D/o Mr. Vinayak Kirange
           <br />
-          &amp; Mrs. Seema Deshmukh
+          &amp; Mrs. Lila Kirange
         </p>
 
         <p
@@ -91,7 +91,7 @@ export default function HeroSection() {
               color: "var(--color-maroon)",
             }}
           >
-            Prajakta
+            Chetan
           </span>
         </h1>
 
@@ -99,9 +99,9 @@ export default function HeroSection() {
           className="mt-3 pb-12 text-base sm:text-lg"
           style={{ fontFamily: "var(--font-cormorant), serif", color: "rgba(60, 44, 32, 0.8)" }}
         >
-          D/o Mr. Dasharath Yadav
+          S/o Mr. Sadanand Salam
           <br />
-          &amp; Mrs. Ujjwala Yadav
+          &amp; Mrs. Sujata Salam
         </p>
       </div>
     </section>

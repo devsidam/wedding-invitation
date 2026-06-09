@@ -54,13 +54,13 @@ export default function FamiliesSection() {
               className="text-xl my-1"
               style={{ fontFamily: "var(--font-cormorant), serif", color: "var(--color-brown)" }}
             >
-              Mr. Sanjay Deshmukh
+              Mr. Vinayak Kirange
             </p>
             <p
               className="text-xl my-1"
               style={{ fontFamily: "var(--font-cormorant), serif", color: "var(--color-brown)" }}
             >
-              Mrs. Seema Deshmukh
+              Mrs. Lila Kirange
             </p>
           </div>
         </div>
