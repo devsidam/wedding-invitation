@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const WEDDING_DATE = new Date("2026-07-19T15:48:00+05:30");
+const WEDDING_DATE = new Date("2026-06-19T12:00:00+05:30");
 
 function getTimeLeft() {
   const diff = WEDDING_DATE.getTime() - Date.now();
@@ -80,10 +80,11 @@ function ScratchCard({ onReveal }: { onReveal: () => void }) {
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let cleared = 0;
     for (let i = 3; i < imageData.data.length; i += 4) {
-      if (imageData.data[i] === 0) cleared++;
+      if (imageData.data[i] < 10) cleared++;
     }
     const pct = cleared / (imageData.data.length / 4);
-    if (pct > 0.4 && !revealed.current) {
+
+    if (pct > 0.2 && !revealed.current) {
       revealed.current = true;
       onReveal();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -153,7 +154,11 @@ export default function CountdownSection() {
         <GoldDivider />
 
         <div className="mb-10">
-          <ScratchCard onReveal={() => setShowCountdown(true)} />
+          <ScratchCard
+            onReveal={() => {
+              setShowCountdown(true);
+            }}
+          />
         </div>
 
         <div
