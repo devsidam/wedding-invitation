@@ -130,15 +130,74 @@ function ScratchCard({ onReveal }: { onReveal: () => void }) {
     </div>
   );
 }
+function smoothScrollTo(targetY: number, duration: number) {
 
+  const startY = window.scrollY;
+
+  const distance = targetY - startY;
+
+  const startTime = performance.now();
+
+  function animate(currentTime: number) {
+
+    const elapsed = currentTime - startTime;
+
+    const progress = Math.min(elapsed / duration, 1);
+
+    // easeInOutCubic
+
+    const eased =
+
+      progress < 0.5
+
+        ? 4 * progress * progress * progress
+
+        : 1 -
+
+        Math.pow(-2 * progress + 2, 3) / 2;
+
+    window.scrollTo(
+
+      0,
+
+      startY + distance * eased
+
+    );
+
+    if (progress < 1) {
+
+      requestAnimationFrame(animate);
+
+    }
+
+  }
+
+  requestAnimationFrame(animate);
+
+}
 export default function CountdownSection() {
   const [time, setTime] = useState(getTimeLeft());
   const [showCountdown, setShowCountdown] = useState(false);
+  const countdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const id = setInterval(() => setTime(getTimeLeft()), 1000);
     return () => clearInterval(id);
   }, []);
+
+  useEffect(() => {
+
+    if (!showCountdown) return;
+
+    const timer = setTimeout(() => {
+
+      // const target = window.scrollY + countdownRef.current!.getBoundingClientRect().top - window.innerHeight * 0.35;
+      const target = window.scrollY + 150;
+      smoothScrollTo(target, 1000);}, 1000);
+
+    return () => clearTimeout(timer);
+
+  }, [showCountdown]);
 
   const units = [
     { value: time.days, label: "Days" },
@@ -162,6 +221,7 @@ export default function CountdownSection() {
         </div>
 
         <div
+          ref={countdownRef}
           className={`transition-all duration-700 ${showCountdown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none h-0 overflow-hidden"}`}
           aria-hidden={!showCountdown}
         >
