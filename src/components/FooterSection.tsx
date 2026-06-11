@@ -40,7 +40,7 @@
 export default function FooterSection() {
   return (
     <footer
-      className="relative pt-12 pb-0 px-6 text-center overflow-hidden flex flex-col items-center justify-between min-h-[85svh] sm:min-h-[700px]"
+      className="relative pt-12 pb-0 px-6 text-center overflow-hidden flex flex-col items-center justify-start min-h-[85svh] sm:min-h-[700px]"
       style={{ backgroundColor: "var(--color-brown)" }}
     >
       {/* 1. TEXT / CONTENT LAYER */}
@@ -81,7 +81,7 @@ export default function FooterSection() {
       </div>
 
       {/* 2. MOBILE-FIRST CUTOUT CONTAINER */}
-      <div className="relative z-10 w-full max-w-[280px] sm:max-w-[360px] mt-auto flex justify-center items-end select-none">
+      <div className="relative z-10 w-full max-w-[280px] sm:max-w-[360px] mt-8 flex justify-center items-end select-none">
         <img
           src="/images/couple-footer.png" // Replace with your cutout image path
           alt="Roshni & Chetan"
