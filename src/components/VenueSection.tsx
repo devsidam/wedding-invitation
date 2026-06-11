@@ -18,7 +18,7 @@ export default function VenueSection() {
           className="text-xs tracking-widest"
           style={{ fontFamily: "var(--font-cinzel), serif", color: "var(--color-sage-deep)" }}
         >
-          VENUE
+          WEDDING VENUE
         </p>
         <h2
           className="mt-2 text-5xl sm:text-6xl"
