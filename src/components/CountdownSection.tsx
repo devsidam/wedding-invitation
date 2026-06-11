@@ -297,6 +297,15 @@ export default function CountdownSection() {
           className={`transition-all duration-700 ${showCountdown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none h-0 overflow-hidden"}`}
           aria-hidden={!showCountdown}
         >
+          <p
+            className="mb-6 italic text-lg sm:text-xl"
+            style={{
+              fontFamily: "var(--font-cormorant), serif",
+              color: "var(--color-sage-deep)"
+            }}
+          >
+            Counting Down to Our Big Day
+          </p>
           <div className="flex justify-center gap-3 sm:gap-6">
             {units.map((u) => (
               <div key={u.label} className="flex flex-col items-center min-w-[68px] sm:min-w-[90px]">
