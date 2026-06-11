@@ -18,6 +18,30 @@ export default function MusicButton({
     setPlaying(true);
   }, [autoPlay]);
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      if (document.hidden) {
+        audio.pause();
+        setPlaying(false);
+      }
+    };
+
+    document.addEventListener(
+      "visibilitychange",
+      handleVisibilityChange
+    );
+
+    return () => {
+      document.removeEventListener(
+        "visibilitychange",
+        handleVisibilityChange
+      );
+    };
+  }, []);
+
   const toggle = () => {
     const audio = audioRef.current;
     if (!audio) return;
