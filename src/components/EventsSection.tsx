@@ -53,7 +53,7 @@ const events = [
     date: "FRI · June 19, 2026",
     time: "12:15 PM",
     venue: "R K Celebration Hall, Armori Road, Gadchiroli",
-    bg: "/images/bg-varm.jpeg",
+    bg: "/images/bg-varma.jpeg",
     couple: "/images/",
     coupleAlt: "Varmala couple illustration",
     layout: "left" as const,
