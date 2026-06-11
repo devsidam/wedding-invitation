@@ -229,7 +229,7 @@ export default function CountdownSection() {
       <SectionDecorations />
       {showCelebration && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
-          {[...Array(150)].map((_, i) => {
+          {[...Array(80)].map((_, i) => {
             const colors = [
 
               "#CFA75B", // richer gold

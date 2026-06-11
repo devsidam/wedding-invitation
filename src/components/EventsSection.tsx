@@ -10,43 +10,43 @@ const events = [
     time: "08:00 PM onwards",
     venue: "(Home) Roshni Niwas, T Point Square, MIDC Road, Gadchiroli",
     bg: "/images/bg-sangeet.jpg",
-    couple: "/images/couple-footer.png",
+    couple: "/images/",
     coupleAlt: "Sangeet couple illustration",
     layout: "left" as const,
   },
-  {
-    title: "Gavdev",
-    description: "Seeking blessings from the village deity",
-    date: "THU · June 18, 2026",
-    time: "07:00 PM onwards",
-    venue: "(Home) Roshni Niwas, T Point Square, MIDC Road, Gadchiroli",
-    bg: "/images/bg-gavdev.jpg",
-    couple: "/images/couple-gavdev.png",
-    coupleAlt: "Gavdev couple illustration",
-    layout: "right" as const,
-  },
+  // {
+  //   title: "Gavdev",
+  //   description: "Seeking blessings from the village deity",
+  //   date: "THU · June 18, 2026",
+  //   time: "07:00 PM onwards",
+  //   venue: "(Home) Roshni Niwas, T Point Square, MIDC Road, Gadchiroli",
+  //   bg: "/images/bg-gavdev.jpg",
+  //   couple: "/images/couple-gavdev.png",
+  //   coupleAlt: "Gavdev couple illustration",
+  //   layout: "right" as const,
+  // },
   {
     title: "Haldi",
     description: "A joyful morning of haldi, blessings and laughter",
-    date: "THUS · June 18, 2026",
+    date: "THU · June 18, 2026",
     time: "6:00 PM onwards",
     venue: "(Home) Roshni Niwas, T Point Square, MIDC Road, Gadchiroli",
     bg: "/images/bg-haldi.jpg",
-    couple: "/images/couple-haldi.png",
+    couple: "/images/",
     coupleAlt: "Haldi couple illustration",
     layout: "left" as const,
   },
-  {
-    title: "Sapthapadi",
-    description: "The sacred seven vows under the floral mandap",
-    date: "FRI · June 19, 2026",
-    time: "12:00 PM",
-    venue: "R K Celebration Hall, Armori Road, Gadchiroli",
-    bg: "/images/bg-sapthapadi.jpg",
-    couple: "/images/couple-sapthapadi.png",
-    coupleAlt: "Sapthapadi couple illustration",
-    layout: "right" as const,
-  },
+  // {
+  //   title: "Sapthapadi",
+  //   description: "The sacred seven vows under the floral mandap",
+  //   date: "FRI · June 19, 2026",
+  //   time: "12:00 PM",
+  //   venue: "R K Celebration Hall, Armori Road, Gadchiroli",
+  //   bg: "/images/bg-sapthapadi.jpg",
+  //   couple: "/images/couple-sapthapadi.png",
+  //   coupleAlt: "Sapthapadi couple illustration",
+  //   layout: "right" as const,
+  // },
   {
     title: "Varmala",
     description: "The exchange of garlands and a joyous celebration",
@@ -54,7 +54,7 @@ const events = [
     time: "12:15 PM",
     venue: "R K Celebration Hall, Armori Road, Gadchiroli",
     bg: "/images/bg-varmala.jpg",
-    couple: "/images/couple-varmala.png",
+    couple: "/images/",
     coupleAlt: "Varmala couple illustration",
     layout: "left" as const,
   },
@@ -97,13 +97,13 @@ function EventCard({ event }: { event: (typeof events)[0] }) {
       <div className="relative">
         <div className={`grid gap-4 sm:gap-6 items-end p-6 sm:p-8 grid-cols-1 sm:grid-cols-2`}>
           <div className={`flex justify-center items-end h-full ${isLeft ? "order-2 sm:order-1" : "order-2 sm:order-2"}`}>
-            <Image
+            {/* <Image
               src={event.couple}
               alt={event.coupleAlt}
               width={220}
               height={394}
               className="w-full max-w-[220px] h-auto object-contain drop-shadow-md"
-            />
+            /> */}
           </div>
           <div className={`text-center order-1 text-slate-100 flex flex-col justify-center ${isLeft ? "sm:order-2" : "sm:order-1"}`}>
             <h3
