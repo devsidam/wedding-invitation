@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Roshni & Chetan - Wedding Invitation",
     description: "A wedding invitation to celebrate the union of Roshni & Chetan on 19th June 2026",
-    images: [{ url: "https://wedding-invitation-omega-teal.vercel.app/images/couple-footer.png", width: 1200, height: 630}],
+    images: [{ url: "https://wedding-invitation-omega-teal.vercel.app/images/ogshare.png", width: 1200, height: 630}],
   },
   icons: { icon: "/images/sunflower.png" },
 };
