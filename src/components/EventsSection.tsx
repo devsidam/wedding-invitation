@@ -50,7 +50,7 @@ const events = [
   {
     title: "Varmala",
     description: "The exchange of garlands and a joyous celebration",
-    date: "SUN · June 19, 2026",
+    date: "FRI · June 19, 2026",
     time: "12:15 PM",
     venue: "R K Celebration Hall, Armori Road, Gadchiroli",
     bg: "/images/bg-varmala.jpg",
