@@ -27,8 +27,9 @@ export const metadata: Metadata = {
     type: "website",
     title: "Roshni & Chetan - Wedding Invitation",
     description: "A wedding invitation to celebrate the union of Roshni & Chetan on 19th June 2026",
-    images: ["/images/wedding-hero.jpg"],
+    images: ["/images/couple-footer.png"],
   },
+  icons: { icon: "/images/sunflower.png" },
 };
 
 export default function RootLayout({

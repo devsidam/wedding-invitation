@@ -5,12 +5,14 @@ import Image from "next/image";
 
 interface EnvelopeProps {
   onOpen: () => void;
+  onStartMusic: () => void;
 }
 
-export default function Envelope({ onOpen }: EnvelopeProps) {
+export default function Envelope({ onOpen, onStartMusic }: EnvelopeProps) {
   const [opening, setOpening] = useState(false);
 
   const handleClick = () => {
+    onStartMusic();
     setOpening(true);
     setTimeout(onOpen, 1200);
   };
@@ -46,14 +48,20 @@ export default function Envelope({ onOpen }: EnvelopeProps) {
         />
         <span className="absolute inset-0 flex items-center justify-center">
           <span
-            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center animate-shimmer"
+            className="w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center animate-shimmer"
             style={{
               background: "linear-gradient(135deg, hsl(36 55% 60%), hsl(36 45% 45%))",
               boxShadow: "0 10px 40px -10px hsl(36 55% 45% / .4)",
             }}
           >
-            <span
+            {/* <span
               className="text-xs text-white/90"
+              style={{ fontFamily: "var(--font-cinzel), serif" }}
+            >
+              R & C
+            </span> */}
+            <span
+              className="text-lg sm:text-xl text-white/95 tracking-[0.05em]"
               style={{ fontFamily: "var(--font-cinzel), serif" }}
             >
               R & C

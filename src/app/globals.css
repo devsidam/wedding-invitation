@@ -96,7 +96,7 @@ body {
 }
 
 .animate-shimmer {
-  animation: shimmer 3s ease-in-out infinite;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
 .animate-envelope-open {
@@ -123,4 +123,42 @@ body {
 
 .shadow-elegant {
   box-shadow: var(--shadow-elegant);
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -30px;
+
+  opacity: 1;
+  border-radius: 2px;
+
+  animation-name: confettiFall;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(0) rotate(0deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translateY(1800px) rotate(180deg);
+  }
+}
+
+.confetti-circle {
+  border-radius: 999px;
+}
+
+.confetti-rect {
+  border-radius: 2px;
 }

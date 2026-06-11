@@ -54,11 +54,27 @@ function ScratchCard({ onReveal }: { onReveal: () => void }) {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, rect.width, rect.height);
 
-    ctx.fillStyle = "rgba(255,255,255,0.15)";
-    ctx.font = "bold 14px Cinzel, serif";
+    // ctx.fillStyle = "rgba(255,255,255,0.15)";
+    // ctx.font = "bold 14px Cinzel, serif";
+    // ctx.textAlign = "center";
+    // ctx.textBaseline = "middle";
+    // ctx.fillText("✦ SCRATCH TO REVEAL ✦", rect.width / 2, rect.height / 2);
+    ctx.fillStyle = "rgba(255, 245, 210, 0.9)";
+    ctx.font = "700 18px Cinzel, serif";
+
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("✦ SCRATCH TO REVEAL ✦", rect.width / 2, rect.height / 2);
+
+    ctx.shadowColor = "rgba(255, 230, 180, 0.5)";
+    ctx.shadowBlur = 10;
+
+    ctx.fillText(
+      "✦  S C R A T C H   T O   R E V E A L  ✦",
+      rect.width / 2,
+      rect.height / 2
+    );
+
+    ctx.shadowBlur = 0;
   }, []);
 
   useEffect(() => {
@@ -84,7 +100,7 @@ function ScratchCard({ onReveal }: { onReveal: () => void }) {
     }
     const pct = cleared / (imageData.data.length / 4);
 
-    if (pct > 0.2 && !revealed.current) {
+    if (pct > 0.15 && !revealed.current) {
       revealed.current = true;
       onReveal();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -178,6 +194,7 @@ function smoothScrollTo(targetY: number, duration: number) {
 export default function CountdownSection() {
   const [time, setTime] = useState(getTimeLeft());
   const [showCountdown, setShowCountdown] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false); // conf
   const countdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -193,7 +210,7 @@ export default function CountdownSection() {
 
       // const target = window.scrollY + countdownRef.current!.getBoundingClientRect().top - window.innerHeight * 0.35;
       const target = window.scrollY + 150;
-      smoothScrollTo(target, 1000);}, 1000);
+      smoothScrollTo(target, 800);}, 800);
 
     return () => clearTimeout(timer);
 
@@ -207,15 +224,70 @@ export default function CountdownSection() {
   ];
 
   return (
-    <section className="relative py-20 px-6" style={{ backgroundColor: "var(--color-cream)" }}>
+    // <section className="relative py-20 px-6" style={{ backgroundColor: "var(--color-cream)" }}>
+    <section className="relative py-10 md:py-20 px-6 overflow-hidden" style={{ backgroundColor: "var(--color-cream)" }}>  
       <SectionDecorations />
+      {showCelebration && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
+          {[...Array(150)].map((_, i) => {
+            const colors = [
+
+              "#CFA75B", // richer gold
+
+              "#DFA3A3", // blush pink
+
+              "#9FAF98", // sage
+
+              "#B8860B", // deep gold accent
+
+            ];
+
+            return (
+              <span
+                key={i}
+                className={`confetti-piece ${Math.random() > 0.5
+
+                    ? "confetti-circle"
+
+                    : "confetti-rect"
+
+                  }`}
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  backgroundColor:
+                    colors[Math.floor(Math.random() * colors.length)],
+
+                  width: `${4 + Math.random() * 4}px`,
+                  height: `${8 + Math.random() * 8}px`,
+
+                  animationDelay: `${Math.random() * 4}s`,
+                  animationDuration: `${14 + Math.random() * 6}s`,
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
+
       <div className="relative max-w-3xl mx-auto text-center">
         <GoldDivider />
 
-        <div className="mb-10">
+        {/* <div className="mb-10"> */}
+        <div className="mb-6 md:mb-10">
+          {/* <ScratchCard
+            onReveal={() => {
+              setShowCountdown(true);
+            }}
+          /> */}
           <ScratchCard
             onReveal={() => {
               setShowCountdown(true);
+
+              setShowCelebration(true);
+
+              setTimeout(() => {
+                setShowCelebration(false);
+              }, 5000);
             }}
           />
         </div>

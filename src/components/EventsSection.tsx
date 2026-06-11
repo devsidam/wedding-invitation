@@ -10,7 +10,7 @@ const events = [
     time: "08:00 PM onwards",
     venue: "(Home) Roshni Niwas, T Point Square, MIDC Road, Gadchiroli",
     bg: "/images/bg-sangeet.jpg",
-    couple: "/images/couple-sangeet.png",
+    couple: "/images/couple-footer.png",
     coupleAlt: "Sangeet couple illustration",
     layout: "left" as const,
   },

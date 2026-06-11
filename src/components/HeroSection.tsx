@@ -62,7 +62,7 @@ export default function HeroSection() {
               color: "var(--color-maroon)",
             }}
           >
-            Roshni
+            Dr. Roshni
           </span>
         </h1>
 
@@ -91,7 +91,7 @@ export default function HeroSection() {
               color: "var(--color-maroon)",
             }}
           >
-            Chetan
+            Dr. Chetan
           </span>
         </h1>
 

@@ -2,15 +2,21 @@
 
 import { useRef, useState, useEffect } from "react";
 
-export default function MusicButton() {
+export default function MusicButton({
+  autoPlay,
+}: {
+  autoPlay: boolean;
+}) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || !autoPlay) return;
     audio.volume = 0.3;
-  }, []);
+    audio.play();
+    setPlaying(true);
+  }, [autoPlay]);
 
   const toggle = () => {
     const audio = audioRef.current;

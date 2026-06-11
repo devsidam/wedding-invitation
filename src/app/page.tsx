@@ -14,16 +14,19 @@ import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
+  const [musicStarted, setMusicStarted] = useState(false);
 
   return (
     <>
       <FloatingEmojis />
 
-      {!opened && <Envelope onOpen={() => setOpened(true)} />}
+      {!opened && <Envelope 
+        onOpen={() => setOpened(true)}
+        onStartMusic={() => setMusicStarted(true)} />}
 
       {opened && (
         <>
-          <MusicButton />
+          <MusicButton autoPlay={musicStarted} />
           <main className="animate-fade-in">
             <HeroSection />
             <CountdownSection />
