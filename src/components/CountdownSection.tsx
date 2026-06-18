@@ -1,6 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { motion } from "framer-motion";
+
+const sparkleColors = [
+  "#D4AF37",
+  "#C9A227",
+  "#E6D5B8",
+  "#B08D57",
+  "#F1E3C6",
+];
 
 const WEDDING_DATE = new Date("2026-06-19T12:00:00+05:30");
 
@@ -77,11 +86,11 @@ function ScratchCard({ onReveal }: { onReveal: () => void }) {
     ctx.shadowBlur = 0;
   }, []);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    initCanvas(canvas);
-  }, [initCanvas]);
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   if (!canvas) return;
+  //   initCanvas(canvas);
+  // }, [initCanvas]);
 
   const scratch = (x: number, y: number) => {
     const canvas = canvasRef.current;
@@ -193,7 +202,7 @@ function smoothScrollTo(targetY: number, duration: number) {
 }
 export default function CountdownSection() {
   const [time, setTime] = useState(getTimeLeft());
-  const [showCountdown, setShowCountdown] = useState(false);
+  const [showCountdown, setShowCountdown] = useState(true);
   const [showCelebration, setShowCelebration] = useState(false); // conf
   const countdownRef = useRef<HTMLDivElement>(null);
 
@@ -228,40 +237,42 @@ export default function CountdownSection() {
     <section className="relative py-10 md:py-20 px-6 overflow-hidden" style={{ backgroundColor: "var(--color-cream)" }}>  
       <SectionDecorations />
       {showCelebration && (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
-          {[...Array(80)].map((_, i) => {
-            const colors = [
-
-              "#CFA75B", // richer gold
-
-              "#DFA3A3", // blush pink
-
-              "#9FAF98", // sage
-
-              "#B8860B", // deep gold accent
-
-            ];
+        <div className="absolute inset-0 pointer-events-none z-50 overflow-visible">
+          {[...Array(150)].map((_, i) => {
+            // const angle = (Math.PI * 2 * i) / 80;
+            const angle = Math.random()* Math.PI * 2;
+            const distance = 500 + Math.random() * 400;
 
             return (
-              <span
+              <motion.div
                 key={i}
-                className={`confetti-piece ${Math.random() > 0.5
-
-                    ? "confetti-circle"
-
-                    : "confetti-rect"
-
-                  }`}
+                className="absolute left-1/2 top-1/2 rounded-full"
                 style={{
-                  left: `${Math.random() * 100}%`,
+                  width: 3 + Math.random() * 4,
+                  height: 3 + Math.random() * 4,
                   backgroundColor:
-                    colors[Math.floor(Math.random() * colors.length)],
-
-                  width: `${4 + Math.random() * 4}px`,
-                  height: `${8 + Math.random() * 8}px`,
-
-                  animationDelay: `${Math.random() * 4}s`,
-                  animationDuration: `${14 + Math.random() * 6}s`,
+                    sparkleColors[
+                    Math.floor(Math.random() * sparkleColors.length)
+                    ],
+                  boxShadow:
+                    "0 0 8px rgba(212,175,55,0.7)",
+                }}
+                initial={{
+                  x: 0,
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                }}
+                animate={{
+                  x: Math.cos(angle) * distance,
+                  y: Math.sin(angle) * distance,
+                  opacity: [1,1,1,0.8],
+                  scale: [1,1.05,1],
+                }}
+                transition={{
+                  duration: 10,
+                  delay: Math.random() * 0.5,
+                  ease: "linear",
                 }}
               />
             );
@@ -279,6 +290,7 @@ export default function CountdownSection() {
               setShowCountdown(true);
             }}
           /> */}
+          <div className="relative">
           <ScratchCard
             onReveal={() => {
               setShowCountdown(true);
@@ -287,9 +299,9 @@ export default function CountdownSection() {
 
               setTimeout(() => {
                 setShowCelebration(false);
-              }, 5000);
+              }, 6500);
             }}
-          />
+            /></div>
         </div>
 
         <div

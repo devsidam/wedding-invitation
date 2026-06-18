@@ -58,11 +58,23 @@ export default function HeroSection() {
             className="block leading-none"
             style={{
               fontFamily: "var(--font-great-vibes), cursive",
-              fontSize: "clamp(60px, 10vw, 128px)",
               color: "var(--color-maroon)",
             }}
           >
-            Dr. Roshni
+            <span
+              style={{
+                fontSize: "clamp(38px, 6vw, 72px)",
+              }}
+            >
+              Dr.
+            </span>{" "}
+            <span
+              style={{
+                fontSize: "clamp(60px, 10vw, 128px)",
+              }}
+            >
+              Roshni
+            </span>
           </span>
         </h1>
 
@@ -83,7 +95,7 @@ export default function HeroSection() {
         </p>
 
         <h1 className="mt-2">
-          <span
+          {/* <span
             className="block leading-none"
             style={{
               fontFamily: "var(--font-great-vibes), cursive",
@@ -92,6 +104,28 @@ export default function HeroSection() {
             }}
           >
             Dr. Chetan
+          </span> */}
+          <span
+            className="block leading-none"
+            style={{
+              fontFamily: "var(--font-great-vibes), cursive",
+              color: "var(--color-maroon)",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "clamp(38px, 6vw, 72px)",
+              }}
+            >
+              Dr.
+            </span>{" "}
+            <span
+              style={{
+                fontSize: "clamp(60px, 10vw, 128px)",
+              }}
+            >
+              Chetan
+            </span>
           </span>
         </h1>
 
